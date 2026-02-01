@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet user
-        run: echo "hello world from ${{github.actor}}" 
+        run: |
+          echo "Hello ${{vars.WHO_TO_GREET}} from ${{ github.actor }}."
+          echo "My secret is ${{ secrets.MY_SECRET }}."
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - run: tree
